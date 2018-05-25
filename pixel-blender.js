@@ -41,12 +41,13 @@ function dataArrayToPixelMatrix( da, pm )
 {
 	const w = pm.width;
 	const h = pm.height;
-	for( var i = 0; i < da.length ; i+=4 )
+	const dl = da.length;
+	for( var i = 0; i < dl ; i+=4 )
 	{
 		pm[Math.floor((i/4)%w)][Math.floor((i/4)%h)] = new Pixel(da[i],da[i+1],da[i+2],da[i+3]);
 	}
 }
-
+ 
 function pixelMatrixToDataArray( pm, da )
 {
 	const w = pm.width;
@@ -54,7 +55,7 @@ function pixelMatrixToDataArray( pm, da )
 	var i = 0;
 	for( var x = 0; x < w; x++ ){
 		for(var y = 0; y < h; y++ ){
-			const thisPixel = pm[x][y]
+			const thisPixel = pm[x][y];
 			da[i] = thisPixel.red;
 			da[i+1] = thisPixel.green;
 			da[i+2] = thisPixel.blue;

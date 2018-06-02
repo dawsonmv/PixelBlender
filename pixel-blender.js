@@ -33,7 +33,12 @@ function Pixel(r,g,b,a){
 function PixelMatrix( width, height ){
 	this.matrixWidth = width;
 	this.matrixHeight = height;
-	this.matrix = new Array( this.matrixWidth ).fill( new Array( this.matrixHeight ).fill( new Pixel(0,0,0,0) )  );
+	this.matrix = [][];
+	for(var x = 0; x < this.matrixWidth; x++ ){
+		for( var y = 0; y < this.matrixHeight; y++ ){
+			this.matrix[ x ][ y ] =  new Pixel(0,0,0,0);
+		}
+	}
 }
 
 // codec functions
